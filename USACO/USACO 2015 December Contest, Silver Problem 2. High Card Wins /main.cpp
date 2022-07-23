@@ -1,3 +1,8 @@
+/* 
+ * Score: 15/15
+ * Link: http://www.usaco.org/index.php?page=viewproblem2&cpid=571
+ * Author: Jakub Królak
+ */
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -5,7 +10,7 @@ using namespace std;
 int main()
 {
 	freopen("highcard.in", "r", stdin);
-	freopen("highcard.out", "w", stdout);
+	freopen("highcard.out", "w", stdoutgi);
 
 
 	int n;
