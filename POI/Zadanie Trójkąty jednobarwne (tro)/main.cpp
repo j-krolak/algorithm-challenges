@@ -7,7 +7,7 @@ using namespace std;
 
 constexpr int MAXN = 1e3 + 10;
 
-vector<int> visited[MAXN];
+int visited[MAXN];
 
 int calc(int n)
 {
@@ -29,10 +29,10 @@ int main()
 	{
 		cin >> a >> b;
 
-		ans -= n - visited[a].size() - visited[b].size() - 2;
+		ans -= n - visited[a] - visited[b] - 2;
 
-		visited[a].push_back(b);
-		visited[b].push_back(a);
+		visited[a]++;
+		visited[b]++;
 	}
 	cout << ans << "\n";
 	return 0;
