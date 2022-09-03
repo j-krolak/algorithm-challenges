@@ -2,7 +2,7 @@
 
 using namespace std;
 
-constexpr int MAXN = 200;
+constexpr int MAXN = 500;
 
 int d[MAXN][MAXN];
 
@@ -15,38 +15,37 @@ int main()
 	int n;
 	cin >> n;
 
-	for(int i = 0; i < n; i++)
+	for(int i = 1; i <= n; i++)
 	{
-		for(int j = 0; j < n; j++)
+		for(int j = 1; j <= n; j++)
 		{
-			cin >> d[j][i];
+			cin >> d[i][j];
 		}
 	}
 
 	vector<pair<int, int>> ans;
 
 
-	for(int i = 0; i < n; i++)
+	for(int i = 1; i <= n; i++)
 	{
-		for(int j = i+1; j < n; j++)
+		for(int j = i+1; j <= n; j++)
 		{
 			int len = d[i][j];
 			bool t = true;
-			for(int k = 0; k < n; k++)
+			for(int k = 1; k <= n; k++)
 			{
-				if(!t)
-					break;
 				if(k == i || k == j)
 					continue;
 
-				if(d[i][k] + d[j][k] == len)
+				if(d[k][i] + d[k][j] == len)
 				{
 					t = false;
+					break;
 				}
 			}
 
 			if(t)
-				ans.push_back({i,j});
+				ans.push_back({min(i,j),max(i,j)});
 		}
 	
 	}
@@ -55,7 +54,7 @@ int main()
 
 	for(size_t i  = 0; i < ans.size(); i++)
 	{
-		cout << ans[i].first+1 << " " << ans[i].second+1<<"\n";
+		cout << ans[i].first << " " << ans[i].second<<"\n";
 	}
 	return 0;
 }
